@@ -1,0 +1,97 @@
+#!/bin/sh
+
+
+# define the required applications
+
+XSETROOT="/usr/X11R6/bin/xsetroot"
+XCONSOLE="/usr/X11R6/bin/xconsole"
+XRANDR="/usr/X11R6/bin/xrandr" 
+XSET="/usr/X11R6/bin/xset" 
+FEH="/usr/local/bin/feh"
+AWK="/usr/bin/awk"
+CUT="/usr/bin/cut"
+PGREP="/usr/bin/pgrep"
+SETXKBMAP="/usr/X11R6/bin/setxkbmap"
+UNAME="/usr/bin/uname"
+XMSG="/usr/X11R6/bin/xmessage"
+XCLK="/usr/X11R6/bin/xclock"
+BG_COLOR="#2E3440"
+
+background()
+{
+	${XRANDR} --output default --dpi 96
+	${XSETROOT} -solid "${BG_COLOR}"	
+	
+}
+
+
+screen()
+{
+	local res=$($XRANDR | $AWK '/\*/ { print $1 }')
+	WIDTH=$(echo "$res" | $CUT -d "x" -f1)
+	HEIGHT=$(echo "$res" | $CUT -d "x" -f2)
+}
+
+
+picture()
+{
+	PUFFY_WIDTH=$(( HEIGHT - 700 ))
+	POSX=$(( (WIDTH - PUFFY_WIDTH) / 2 ))
+	POSY=$(( HEIGHT * 10 / 100 ))
+	$FEH -B "$BG_COLOR" -g "${PUFFY_WIDTH}x${PUFFY_WIDTH}+$POSX+$POSY" -. -Z /etc/X11/xenodm/pixmaps/bluepuffy.gif &
+
+}
+
+
+main_menu() {
+
+    typeset -i WIDTH=$(xwininfo -root | awk '/Width:/ {print $2}')
+    typeset -i POS=$(( (WIDTH - 400) / 2 ))
+
+    ${XMSG} -geometry "+${POS}-150" \
+            -buttons "[ Sleep ]:20,[ Restart ]:21,[ Shutdown ]:22" \
+            "System Controls"
+    
+    ACTION=$?
+
+    case "$ACTION" in
+        20) 
+            /usr/bin/zzz 
+            ;;
+        21) 
+            $XSETROOT -cursor_name watch
+            /sbin/shutdown -r now 
+            ;;
+        22) 
+            $XSETROOT -cursor_name watch
+            /sbin/shutdown -p now 
+            ;;
+        *) 
+            return 
+            ;;
+    esac
+
+
+    if ${PREP} -U root xclock > /dev/null 2>&1; then
+        action_menu_loop
+    fi
+}
+
+
+
+clock()
+{
+OS_NAME=$($UNAME -n)
+OS_INFO=$($UNAME -smr)
+KEYBD=$($SETXKBMAP -print | grep xkb_symbols | $CUT -d "+" -f2)
+$XCLK -geometry -0+20 -digital -strftime "$OS_NAME ($OS_INFO) Keyboard: $KEYBD | %a. %d %b. %Y - %H:%M:%S " &
+}
+
+
+background 
+screen
+picture 
+main_menu & clock
+
+
+

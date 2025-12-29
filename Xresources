@@ -1,0 +1,72 @@
+
+#define nord0  #2e3440
+#define nord1  #3b4252
+#define nord2  #434c5e
+#define nord3  #4c566a
+#define nord4  #d8dee9
+#define nord11 #bf616a
+
+
+DisplayManager*terminateServer: true
+xroot.background: nord0
+
+! ----------------------------------------------------------------------
+! XLOGIN
+! ----------------------------------------------------------------------
+
+xlogin.Login.allowRootLogin:    false
+xlogin.Login.echoPasswd:        false
+xlogin.Login.fail:              Acceso denegado
+xlogin.Login.greeting:          
+xlogin.Login.namePrompt:        
+xlogin.Login.passwdPrompt:     
+
+! Posicionamiento y Estética
+xlogin.Login.y:                 400
+xlogin.Login.width:             300
+xlogin.Login.frameWidth:        0
+xlogin.Login.innerFramesWidth:  0
+xlogin.Login.sepWidth:          0
+xlogin*borderWidth:             0
+
+
+xlogin.Login.background:        nord0
+xlogin.Login.foreground:        nord4
+xlogin.Login.failColor:         nord11
+xlogin.Login.greetColor:        nord4
+xlogin.Login.inpColor:          nord1
+xlogin.Login.promptColor:       nord4
+
+
+xlogin.Login.face:              Terminus-14
+xlogin.Login.failFace:          Terminus-12:bold
+xlogin.Login.greetFace:         Terminus-12:bold
+xlogin.Login.promptFace:        Terminus-14:bold
+
+! ----------------------------------------------------------------------
+! XCLOCK
+! ----------------------------------------------------------------------
+
+xclock.geometry:                -10+10
+xclock*background:              nord0
+xclock*foreground:              nord4
+xclock*borderWidth:             0
+
+xclock*face:                    Terminus-11:bold
+xclock*render:                  true
+xclock*analog:                  false
+xclock*twentyfour:              true
+xclock*update:                  1
+
+! ----------------------------------------------------------------------
+! XMESSAGE
+! ----------------------------------------------------------------------
+
+xmessage*background:            nord0
+xmessage*foreground:            nord4
+xmessage*borderWidth:           0
+xmessage*borderColor:           nord1
+xmessage*face:                  Terminus-12
+xmessage*message.scrollHorizontal: Never
+xmessage*message.scrollVertical:   Never
+xmessage*timeout:               0
