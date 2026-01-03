@@ -1,5 +1,11 @@
 #!/bin/sh
 
+NORD0="#2E3440"
+AURORA1="#BF616A"
+AURORA2="#D08779"
+AURORA3="#EBCD8B"
+AURORA4="#A3BE8C"
+AURORA5="#B48EAD"
 
 # define the required applications
 
@@ -15,13 +21,18 @@ SETXKBMAP="/usr/X11R6/bin/setxkbmap"
 UNAME="/usr/bin/uname"
 XMSG="/usr/X11R6/bin/xmessage"
 XCLK="/usr/X11R6/bin/xclock"
-BG_COLOR="#2E3440"
+
+	#background color
+	BG_COLOR=${AURORA4}
+
+	#image
+	IMAGE="/etc/X11/xenodm/pixmaps/OpenBSD_8bpp.xpm"
+
 
 background()
 {
 	${XRANDR} --output default --dpi 96
-	${XSETROOT} -solid "${BG_COLOR}"	
-	
+	${XSETROOT} -solid "${BG_COLOR}"
 }
 
 
@@ -38,8 +49,8 @@ picture()
 	PUFFY_WIDTH=$(( HEIGHT - 700 ))
 	POSX=$(( (WIDTH - PUFFY_WIDTH) / 2 ))
 	POSY=$(( HEIGHT * 10 / 100 ))
-	$FEH -B "$BG_COLOR" -g "${PUFFY_WIDTH}x${PUFFY_WIDTH}+$POSX+$POSY" -. -Z /etc/X11/xenodm/pixmaps/bluepuffy.gif &
-
+	
+	$FEH -B "$BG_COLOR" -g "${PUFFY_WIDTH}x${PUFFY_WIDTH}+$POSX+$POSY" -. -Z $IMAGE &
 }
 
 

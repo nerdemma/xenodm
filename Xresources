@@ -6,6 +6,16 @@
 #define nord4  #d8dee9
 #define nord11 #bf616a
 
+#define aurora1 #BF616A
+#define aurora2 #D08770
+#define aurora3 #EBCB8B
+#define aurora4 #A3BE8C
+#define aurora5 #B48EAD
+
+#define snowstorm1 #D8DEE9
+#define snowstorm2 #E5E9F0
+#define snowstorm3 #ECEFF4
+
 
 DisplayManager*terminateServer: true
 xroot.background: nord0
@@ -21,7 +31,7 @@ xlogin.Login.greeting:
 xlogin.Login.namePrompt:        
 xlogin.Login.passwdPrompt:     
 
-! Posicionamiento y Estética
+
 xlogin.Login.y:                 400
 xlogin.Login.width:             300
 xlogin.Login.frameWidth:        0
@@ -30,8 +40,8 @@ xlogin.Login.sepWidth:          0
 xlogin*borderWidth:             0
 
 
-xlogin.Login.background:        nord0
-xlogin.Login.foreground:        nord4
+xlogin.Login.background:        aurora4
+xlogin.Login.foreground:        snowstorm2
 xlogin.Login.failColor:         nord11
 xlogin.Login.greetColor:        nord4
 xlogin.Login.inpColor:          nord1
@@ -48,8 +58,8 @@ xlogin.Login.promptFace:        Terminus-14:bold
 ! ----------------------------------------------------------------------
 
 xclock.geometry:                -10+10
-xclock*background:              nord0
-xclock*foreground:              nord4
+xclock*background:              aurora4
+xclock*foreground:              snowstorm2
 xclock*borderWidth:             0
 
 xclock*face:                    Terminus-11:bold
@@ -62,10 +72,10 @@ xclock*update:                  1
 ! XMESSAGE
 ! ----------------------------------------------------------------------
 
-xmessage*background:            nord0
-xmessage*foreground:            nord4
+xmessage*background:            aurora4
+xmessage*foreground:            snowstorm2
 xmessage*borderWidth:           0
-xmessage*borderColor:           nord1
+xmessage*borderColor:           aurora4
 xmessage*face:                  Terminus-12
 xmessage*message.scrollHorizontal: Never
 xmessage*message.scrollVertical:   Never
