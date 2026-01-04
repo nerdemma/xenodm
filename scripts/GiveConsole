@@ -1,0 +1,24 @@
+#!/bin/sh
+
+pkill feh
+pkill xclock
+pkill xmessage
+
+
+chown $USER /dev/console
+if [ -c /dev/drm0 ]; then
+	    chown $USER /dev/drm0
+fi
+
+/usr/X11R6/bin/sessreg -a -l $DISPLAY -u none $USER
+
+
+
+
+
+
+
+
+
+
+
