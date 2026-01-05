@@ -23,7 +23,7 @@ El script de instalación es interactivo y te guiará durante el proceso de resp
 1.  **Clonar el repositorio:**
     ```bash
     git clone [https://github.com/nerdemma/xenodm.git](https://github.com/nerdemma/xenodm.git)
-    cd nombre-repo
+    cd xenodm
     ```
 
 2.  **Dar permisos de ejecución:**
@@ -61,5 +61,14 @@ El script `install.sh` ha sido optimizado para ser robusto y seguro:
 Si tienes un tema visual nuevo o una mejora para los scripts, ¡siéntete libre de abrir un **Pull Request** o reportar un **Issue**!
 
 ---
-*Mantenido por [nerdemma]*
+
+## 🤝 Novedades
+* ** Sun Jan  4 21:29:28 -03 2026 :** Desarrollo de temas personalizados mediante script, validar colores, definir color de fondo y de texto. disponible en la carpeta /scripts/local
+
+
+---
+
+
+
+*Desarrollado con <3 por [nerdemma]*
 
