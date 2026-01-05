@@ -63,7 +63,7 @@ Si tienes un tema visual nuevo o una mejora para los scripts, ¡siéntete libre 
 ---
 
 ## 🤝 Novedades
-* ** Sun Jan  4 21:29:28 -03 2026 :** Desarrollo de temas personalizados mediante script, validar colores, definir color de fondo y de texto. disponible en la carpeta /scripts/local
+* **Sun Jan  4 21:29:28 -03 2026:** Desarrollo de temas personalizados mediante script, validar colores, definir color de fondo y de texto. disponible en la carpeta /scripts/local
 
 
 ---
